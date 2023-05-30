@@ -1,0 +1,58 @@
+public class simcal {
+    public Double number1 { get; set; }
+    public Double number2 { get; set; }
+    public Double result { get; set; }
+
+    public void addition() {
+        if (number1 != null && number2 != null) {
+            result = number1 + number2;
+        }
+    }
+
+    public void subtraction() {
+        if (number1 != null && number2 != null) {
+            result = number1 - number2;
+        }
+    }
+
+    public void division() {
+        if (number1 != null && number2 != null && number2 != 0) {
+            result = number1 / number2;
+        }
+    }
+
+    public void multiplication() {
+        if (number1 != null && number2 != null) {
+            result = number1 * number2;
+        }
+    }
+
+    public void clear() {
+        number1 = 0;
+        number2 = 0;
+        result = 0;
+    }
+}
+
+
+
+
+
+<apex:page controller="SampleCal" showHeader="true">
+  <apex:form >
+  <apex:pageBlock title="CALCULATOR">
+  NUMBER 1: <apex:inputText value="{!number1}"/><br/><br/>
+   NUMBER 2: <apex:inputText value="{!number2}" /><br/><br/>
+   <apex:pageBlockButtons >
+   <apex:commandButton value="ADD" action="{!addition}" />
+       <apex:commandButton value="SUB" action="{!subtraction}" />
+       
+         <apex:commandButton value="DIV" action="{!division}" />
+       <apex:commandButton value="MULTIPLY" action="{!multiplication}" />
+       <apex:commandButton value="CLEAR" action="{!clear}" />
+      </apex:pageBlockButtons>
+ 
+  <b>Output is:<apex:outputText value="{!result}"></apex:outputText></b>
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>
